@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'second_screen.dart';
 import 'package:flutter_application_1/my_methods.dart';
 
-
 var _MyMethods = const MyMethods();
 // Вход в приложение
 void main() => runApp(MyApp());
@@ -205,7 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 45,
                 true),
             _MyMethods.myRowStroke(),
-           _MyMethods.myRowPeople(
+            _MyMethods.myRowPeople(
                 "Цапля Андрей Андреевич",
                 Image.asset('assets/images/image6.jpg', width: 24, height: 24),
                 const Icon(Icons.mic_off, color: Colors.blueGrey),
@@ -240,10 +239,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 110,
                 45,
                 true),
-                const Padding(padding: EdgeInsets.only(top: 50)),
-                ElevatedButton(onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondScreen()),);
-                }, child: const Text("Переход на другую страницу"))
+            const Padding(padding: EdgeInsets.only(top: 50)),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SecondScreen()),
+                  );
+                },
+                child: const Text("Переход на другую страницу"))
           ],
         ),
       ),

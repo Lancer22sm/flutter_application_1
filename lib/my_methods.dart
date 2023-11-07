@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'dart:io';
 
 class MyMethods extends StatelessWidget {
   const MyMethods({super.key});
@@ -22,6 +25,14 @@ class MyMethods extends StatelessWidget {
             hintText: 'Введите текст'),
       );
     }
+  }
+
+  void myJson() {
+    List<String> names = [
+    "Алиса",
+    "Боб",
+    "Чарли",
+  ];
   }
 
   Column myColumnStatePeople(
