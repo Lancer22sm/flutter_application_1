@@ -46,7 +46,8 @@ class SecondScreen extends StatelessWidget {
                 Colors.grey,
                 "Отошёл",
                 115,
-                20),
+                20,
+                false),
             _MyHomePageState().myRowStroke(),
         ]
         ),
@@ -71,13 +72,37 @@ class _MyHomePageState extends State<MyHomePage> {
     'Оффлайн',
   ];
 
+  Widget FirstOrSecondScreen(bool first, String namePeople) {
+    if (first) {
+      return Text(
+                namePeople,
+                textAlign: TextAlign.left,
+                style: const TextStyle(color: Colors.black),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                softWrap: false,
+              );
+    }
+    else {
+      return const TextField(
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(bottom: 10),
+          enabledBorder: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          hintText: 'Введите текст'
+        ),
+      );
+    }
+  }
+
   Column myColumnStatePeople(
       String namePeople,
       bool state,
       double containerWidth,
       Color containerColor,
       String statePeople,
-      double containerPadding) {
+      double containerPadding,
+      bool first) {
     if (state) {
       return Column(
         children: <Widget>[
@@ -86,14 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.only(left: 5),
               width: 180,
               height: 20,
-              child: Text(
-                namePeople,
-                textAlign: TextAlign.left,
-                style: const TextStyle(color: Colors.black),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-                softWrap: false,
-              )),
+              child: FirstOrSecondScreen(first, namePeople)),
           Padding(
             padding: EdgeInsets.only(right: containerPadding, left: 5, top: 5),
             child: Container(
@@ -122,14 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.only(left: 5),
               width: 180,
               height: 20,
-              child: Text(
-                namePeople,
-                textAlign: TextAlign.left,
-                style: const TextStyle(color: Colors.black),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-                softWrap: false,
-              ))
+              child: FirstOrSecondScreen(first, namePeople))
         ],
       );
     }
@@ -146,7 +157,8 @@ class _MyHomePageState extends State<MyHomePage> {
       Color containerColor,
       String statePeople,
       double containerPadding,
-      double heightSizeBox) {
+      double heightSizeBox,
+      bool first) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Column>[
@@ -161,7 +173,8 @@ class _MyHomePageState extends State<MyHomePage> {
               containerColor,
               statePeople,
               containerPadding,
-              heightSizeBox)
+              heightSizeBox,
+              first)
         ]);
   }
 
@@ -183,7 +196,8 @@ class _MyHomePageState extends State<MyHomePage> {
       Color containerColor,
       String statePeople,
       double containerPadding,
-      double heightSizeBox) {
+      double heightSizeBox,
+      bool first) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
@@ -204,7 +218,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     myColumnStatePeople(namePeople, state, containerWidth,
-                        containerColor, statePeople, containerPadding),
+                        containerColor, statePeople, containerPadding, first),
                     SizedBox(
                         width: 130,
                         child: Wrap(
@@ -332,7 +346,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Colors.grey,
                 "Отошёл",
                 115,
-                20),
+                20,
+                true),
             myRowStroke(),
             myRowPeople(
                 "Ассистентовый Вадим",
@@ -349,7 +364,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Colors.grey,
                 "Отошёл",
                 115,
-                45),
+                45,
+                true),
             myRowStroke(),
             myRowPeople(
                 "Поинтов Пётр Петрович",
@@ -366,7 +382,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Colors.grey,
                 "Отошёл",
                 115,
-                20),
+                20,
+                true),
             myRowStroke(),
             myRowPeople(
                 "Селекторный Кирил Валерьевич",
@@ -383,7 +400,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Colors.grey,
                 "Отошёл",
                 115,
-                20),
+                20,
+                true),
             myRowStroke(),
             myRowPeople(
                 "Худенков Александр",
@@ -400,7 +418,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Colors.grey,
                 "Отошёл",
                 115,
-                45),
+                45,
+                true),
             myRowStroke(),
             myRowPeople(
                 "Цапля Андрей Андреевич",
@@ -417,7 +436,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Colors.black12,
                 "Контакт оффлайн",
                 55,
-                45),
+                45,
+                true),
             myRowStroke(),
             myRowPeople(
                 "Черный Артём Генадьевич",
@@ -434,11 +454,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Colors.lightGreen,
                 "Звоним...",
                 110,
-                45),
+                45,
+                true),
                 const Padding(padding: EdgeInsets.only(top: 50)),
                 ElevatedButton(onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondScreen()),);
-                }, child: const Text("Переход на некст страницу"))
+                }, child: const Text("Переход на другую страницу"))
           ],
         ),
       ),
