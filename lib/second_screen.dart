@@ -26,7 +26,21 @@ Column myColumns = Column(children: <Widget>[
             "Отошёл",
             115,
             20,
-            false),
+            false)
+      ]);
+
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({super.key, Key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Вторая страница"),
+      ),
+      body: Column(
+        children:<Widget>[
+          myColumns,
         const Padding(padding: EdgeInsets.only(top: 40)),
         ElevatedButton(
                 onPressed: () {
@@ -51,21 +65,11 @@ Column myColumns = Column(children: <Widget>[
                   "Отошёл",
                   115,
                   20,
-                  false));
+                  true));
                 },
                 child: const Text("Переход на другую страницу"))
-      ]);
-
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key, Key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Вторая страница"),
-      ),
-      body: myColumns
+        ]
+        ),
     );
   }
 }
