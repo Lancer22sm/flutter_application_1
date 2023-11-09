@@ -70,6 +70,7 @@ flutter:
     - assets/images/image5.jpg
     - assets/images/image6.jpg
     - assets/images/image7.jpg
+    - assets/jsons/mynames.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

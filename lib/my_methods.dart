@@ -1,10 +1,11 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'dart:io';
 
 class MyMethods extends StatelessWidget {
-  const MyMethods({super.key});
+  MyMethods({super.key});
+  final _controller = TextEditingController();
+  String getTextFromField() {
+    return _controller.text;
+  }
 
   Widget FirstOrSecondScreen(bool first, String namePeople) {
     if (first) {
@@ -17,22 +18,15 @@ class MyMethods extends StatelessWidget {
         softWrap: false,
       );
     } else {
-      return const TextField(
-        decoration: InputDecoration(
+      return TextField(
+        controller: _controller,
+        decoration: const InputDecoration(
             contentPadding: EdgeInsets.only(bottom: 10),
             enabledBorder: InputBorder.none,
             focusedBorder: InputBorder.none,
             hintText: 'Введите текст'),
       );
     }
-  }
-
-  void myJson() {
-    List<String> names = [
-    "Алиса",
-    "Боб",
-    "Чарли",
-  ];
   }
 
   Column myColumnStatePeople(

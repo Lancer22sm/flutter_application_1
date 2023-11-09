@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'second_screen.dart';
 import 'package:flutter_application_1/my_methods.dart';
 
-var _MyMethods = const MyMethods();
+var _MyMethods = MyMethods();
 // Вход в приложение
 void main() => runApp(MyApp());
 
@@ -112,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const Padding(padding: EdgeInsets.only(top: 30)),
             _MyMethods.myRowPeople(
-                "Александо Толстиков",
+                "Александ Толстиков",
                 Image.asset('assets/images/image1.jpg', width: 24, height: 24),
                 const Icon(Icons.mic_off, color: Colors.blueGrey),
                 const Icon(

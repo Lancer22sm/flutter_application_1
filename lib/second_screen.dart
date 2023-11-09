@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/my_methods.dart';
+import 'dart:ui';
 
-var _MyMethods = const MyMethods();
+var _MyMethods = MyMethods();
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({super.key, Key});
@@ -33,114 +34,56 @@ class SecondScreen extends StatelessWidget {
             115,
             20,
             false),
-        _MyMethods.myRowStroke(),
-        _MyMethods.myRowPeople(
-            "Ассистентовый Вадим",
-            Image.asset('assets/images/image2.jpg', width: 24, height: 24),
-            const Icon(Icons.mic_off, color: Colors.blueGrey),
-            const Icon(Icons.videocam_off, color: Colors.blueGrey),
-            const Icon(
-              Icons.back_hand,
-              color: Colors.red,
-              size: 20,
-            ),
-            true,
-            65,
-            Colors.grey,
-            "Отошёл",
-            115,
-            45,
-            false),
-        _MyMethods.myRowStroke(),
-        _MyMethods.myRowPeople(
-            "Поинтов Пётр Петрович",
-            Image.asset('assets/images/image3.jpg', width: 24, height: 24),
-            const Icon(Icons.mic, color: Colors.blueGrey),
-            const Icon(Icons.videocam_off, color: Colors.blueGrey),
-            const Icon(
-              Icons.back_hand,
-              color: Colors.white,
-              size: 20,
-            ),
-            false,
-            65,
-            Colors.grey,
-            "Отошёл",
-            115,
-            20,
-            false),
-        _MyMethods.myRowStroke(),
-        _MyMethods.myRowPeople(
-            "Селекторный Кирил Валерьевич",
-            Image.asset('assets/images/image4.jpg', width: 24, height: 24),
-            const Icon(Icons.mic_off, color: Colors.blueGrey),
-            const Icon(Icons.videocam_off, color: Colors.blueGrey),
-            const Icon(
-              Icons.back_hand,
-              color: Colors.white,
-              size: 20,
-            ),
-            false,
-            65,
-            Colors.grey,
-            "Отошёл",
-            115,
-            20,
-            false),
-        _MyMethods.myRowStroke(),
-        _MyMethods.myRowPeople(
-            "Худенков Александр",
-            Image.asset('assets/images/image5.jpg', width: 24, height: 24),
-            const Icon(Icons.mic, color: Colors.blueGrey),
-            const Icon(Icons.videocam_off, color: Colors.blueGrey),
-            const Icon(
-              Icons.back_hand,
-              color: Colors.white,
-              size: 20,
-            ),
-            true,
-            65,
-            Colors.grey,
-            "Отошёл",
-            115,
-            45,
-            false),
-        _MyMethods.myRowStroke(),
-        _MyMethods.myRowPeople(
-            "Цапля Андрей Андреевич",
-            Image.asset('assets/images/image6.jpg', width: 24, height: 24),
-            const Icon(Icons.mic_off, color: Colors.blueGrey),
-            const Icon(Icons.videocam_off, color: Colors.blueGrey),
-            const Icon(
-              Icons.back_hand,
-              color: Colors.white,
-              size: 20,
-            ),
-            true,
-            130,
-            Colors.black12,
-            "Контакт оффлайн",
-            55,
-            45,
-            false),
-        _MyMethods.myRowStroke(),
-        _MyMethods.myRowPeople(
-            "Черный Артём Генадьевич",
-            Image.asset('assets/images/image7.jpg', width: 24, height: 24),
-            const Icon(Icons.mic_off, color: Colors.blueGrey),
-            const Icon(Icons.videocam_off, color: Colors.blueGrey),
-            const Icon(
-              Icons.back_hand,
-              color: Colors.white,
-              size: 20,
-            ),
-            true,
-            70,
-            Colors.lightGreen,
-            "Звоним...",
-            110,
-            45,
-            false)
+        const Padding(padding: EdgeInsets.only(top: 40)),
+        GestureDetector(
+            onTap: () {
+              var containerss = Container(
+                width: 120,
+                height: 2,
+                color: Colors.green,
+              );
+              var myRowStroke = _MyMethods.myRowStroke();
+              var myRowPeople = _MyMethods.myRowPeople(
+                  _MyMethods.getTextFromField(),
+                  Image.asset('assets/images/image1.jpg',
+                      width: 24, height: 24),
+                  const Icon(Icons.mic_off, color: Colors.blueGrey),
+                  const Icon(
+                    Icons.videocam_off,
+                    color: Colors.blueGrey,
+                  ),
+                  const Icon(
+                    Icons.back_hand,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                  false,
+                  65,
+                  Colors.grey,
+                  "Отошёл",
+                  115,
+                  20,
+                  false);
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => containerss,
+                ),
+              );
+              WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                // Создаем новый виджет
+                final widget = const Text('Hello, World!');
+
+                // Добавляем виджет в дерево виджетов
+                context.replaceWith(widget);
+              });
+            },
+            child: Container(
+              alignment: Alignment.center,
+              width: 180,
+              height: 20,
+              color: Colors.blue,
+              child: const Text("добавить пользователя"),
+            ))
       ]),
     );
   }
