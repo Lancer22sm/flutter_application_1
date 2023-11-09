@@ -26,12 +26,13 @@ Column myColumns = Column(children: <Widget>[
             false)
       ]);
 
-class SecondScreen extends StatelessWidget {
+class SecondScreen extends StatefulWidget {
   const SecondScreen({super.key, Key});
 
   @override
   _SecondScreen createState() => _SecondScreen();
 }
+
 
 class _SecondScreen extends State<SecondScreen> {
 
