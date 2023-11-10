@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'second_screen.dart';
 import 'package:flutter_application_1/my_methods.dart';
 
@@ -36,6 +39,47 @@ class _MyHomePageState extends State<MyHomePage> {
     'Онлайн',
     'Оффлайн',
   ];
+
+  final _items = <Widget>[];
+
+  Future<void> _addItem() async {
+    var jsonData = await rootBundle.loadString('assets/jsons/mynames.json');
+    Map<String, dynamic> data = jsonDecode(jsonData) as Map<String, dynamic>;
+    List<String> myNames = data["name"];
+    if (myNames.length > 7) {
+      setState(() {
+        for (var i = 0; i < (myNames.length - 7); i++) {
+          _items.add(_MyMethods.myRowStroke());
+          _items.add(_MyMethods.myRowPeople(
+              myNames[i + 7],
+              Image.asset('assets/images/image1.jpg', width: 24, height: 24),
+              const Icon(Icons.mic_off, color: Colors.blueGrey),
+              const Icon(
+                Icons.videocam_off,
+                color: Colors.blueGrey,
+              ),
+              const Icon(
+                Icons.back_hand,
+                color: Colors.white,
+                size: 20,
+              ),
+              false,
+              65,
+              Colors.grey,
+              "Отошёл",
+              115,
+              20,
+              true));
+        }
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _addItem();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -239,6 +283,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 110,
                 45,
                 true),
+            Column(
+              children: _items,
+            ),
             const Padding(padding: EdgeInsets.only(top: 50)),
             ElevatedButton(
                 onPressed: () {
