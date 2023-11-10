@@ -4,7 +4,9 @@ class MyMethods extends StatelessWidget {
   MyMethods({super.key});
   final _controller = TextEditingController();
   String getTextFromField() {
-    return _controller.text;
+    String myText = _controller.text;
+    _controller.text = "";
+    return myText;
   }
 
   Widget FirstOrSecondScreen(bool first, String namePeople) {
