@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/my_methods.dart';
 
 var _MyMethods = MyMethods();
@@ -36,6 +40,8 @@ class SecondScreen extends StatefulWidget {
 class _SecondScreen extends State<SecondScreen> {
   final _items = <Widget>[];
 
+  
+
   void _addItem() {
     setState(() {
       _items.add(_MyMethods.myRowStroke());
@@ -59,7 +65,19 @@ class _SecondScreen extends State<SecondScreen> {
           115,
           20,
           true));
+          jsonCollect();
     });
+  }
+
+  void jsonCollect() async {
+    final String asset = 'assets/jsons/mynames.json';
+    File modifiedFile = File(asset);
+    //final file = File(await DefaultAssetBundle.of(context).loadString('assets/jsons/mynames.json'));
+    var jsonData = await rootBundle.loadString('assets/jsons/mynames.json');
+    Map<String, dynamic> data = jsonDecode(jsonData) as Map<String, dynamic>;
+    data["names"].add(_MyMethods.getTextFromField());
+    //file.writeAsStringSync(json.encode(data));
+    modifiedFile.writeAsStringSync(json.encode(data));
   }
 
   @override
