@@ -41,11 +41,15 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   final _items = <Widget>[];
+  List<String> myNames = [];
 
-  Future<void> _addItem() async {
+  void _addItem() async {
     var jsonData = await rootBundle.loadString('assets/jsons/mynames.json');
     Map<String, dynamic> data = jsonDecode(jsonData) as Map<String, dynamic>;
-    List<String> myNames = data["name"];
+    List<dynamic> items = data['names'];
+    myNames = items.map((dynamic element) {
+      return element.toString();
+    }).toList();
     if (myNames.length > 7) {
       setState(() {
         for (var i = 0; i < (myNames.length - 7); i++) {
