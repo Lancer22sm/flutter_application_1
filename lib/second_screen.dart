@@ -1,9 +1,5 @@
-import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_application_1/my_methods.dart';
-import 'package:path_provider/path_provider.dart';
 
 var _MyMethods = MyMethods();
 
@@ -74,67 +70,10 @@ class _SecondScreen extends State<SecondScreen> {
     });
   }
 
-  localFile(path) async {
-    return File('$path/MyNames.json');
-  }
-
   void jsonCollect() async {
-    List<String> myNames = [];
-    Map<String, dynamic> myData = await readJSON();
+    Map<String, dynamic> myData = await _MyMethods.readJSON();
     myData['names'].add(myTextField);
-    writeJSON(myData);
-    List<dynamic> items = myData['names'];
-    myNames = items.map((dynamic element) {
-      return element.toString();
-    }).toList();
-    print("myNames");
-    print(myNames);
-
-
-    List<String> myNames1 = [];
-    Map<String, dynamic> myData1 = await readJSON();
-    List<dynamic> items1 = myData1['names'];
-    myNames1 = items1.map((dynamic element) {
-      return element.toString();
-    }).toList();
-    print("myNames1");
-    print(myNames1);
-    //file.writeAsStringSync(json.encode(data));
-    //modifiedFile.writeAsStringSync(json.encode(data));
-  }
-
-  localPath() async {
-    try {
-      var tempDir = await getTemporaryDirectory();
-      String tempPath = tempDir.path;
-
-      var appDocDir = await getApplicationDocumentsDirectory();
-      String appDocPath = appDocDir.path;
-      return appDocPath;
-    } catch (err) {
-      print(err);
-    }
-  }
-
-// читаем данные json
-  readJSON() async {
-    try {
-      final file = await localFile(await localPath());
-      String str = await file.readAsString();
-      return json.decode(str);
-    } catch (err) {
-      print(err);
-    }
-  }
-
-  // записываем данные json
-  writeJSON(Map<String, dynamic> obj) async {
-    try {
-      final file = await localFile(await localPath());
-      return file.writeAsString(json.encode(obj));
-    } catch (err) {
-      print(err);
-    }
+    _MyMethods.writeJSON(myData);
   }
 
   @override
@@ -153,7 +92,13 @@ class _SecondScreen extends State<SecondScreen> {
             onPressed: () {
               _addItem();
             },
-            child: const Text("Добавить пользователя"))
+            child: const Text("Добавить пользователя")),
+        const Padding(padding: EdgeInsets.only(top: 40)),
+        ElevatedButton(
+            onPressed: () {
+              _MyMethods.jsonClear();
+            },
+            child: const Text("очистить json"))
       ]),
     );
   }

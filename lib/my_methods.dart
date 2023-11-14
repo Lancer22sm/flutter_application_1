@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
 
 class MyMethods extends StatelessWidget {
   MyMethods({super.key});
@@ -8,6 +12,50 @@ class MyMethods extends StatelessWidget {
     String myText = _controller.text;
     _controller.text = "";
     return myText;
+  }
+
+  localFile(path) async {
+    return File('$path/MyNames.json');
+  }
+
+  void jsonClear() async {
+    var jsonData = await rootBundle.loadString('assets/jsons/mynames.json');
+    Map<String, dynamic> data = jsonDecode(jsonData) as Map<String, dynamic>;
+    writeJSON(data);
+  }
+
+  localPath() async {
+    try {
+      var tempDir = await getTemporaryDirectory();
+      String tempPath = tempDir.path;
+
+      var appDocDir = await getApplicationDocumentsDirectory();
+      String appDocPath = appDocDir.path;
+      return appDocPath;
+    } catch (err) {
+      print(err);
+    }
+  }
+
+// читаем данные json
+  readJSON() async {
+    try {
+      final file = await localFile(await localPath());
+      String str = await file.readAsString();
+      return json.decode(str);
+    } catch (err) {
+      print(err);
+    }
+  }
+
+  // записываем данные json
+  writeJSON(Map<String, dynamic> obj) async {
+    try {
+      final file = await localFile(await localPath());
+      return file.writeAsString(json.encode(obj));
+    } catch (err) {
+      print(err);
+    }
   }
 
   Widget FirstOrSecondScreen(bool first, String namePeople) {

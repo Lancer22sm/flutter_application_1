@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'second_screen.dart';
 import 'package:flutter_application_1/my_methods.dart';
 
@@ -44,9 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
   List<String> myNames = [];
 
   void _addItem() async {
-    var jsonData = await rootBundle.loadString('assets/jsons/mynames.json');
-    Map<String, dynamic> data = jsonDecode(jsonData) as Map<String, dynamic>;
-    List<dynamic> items = data['names'];
+    Map<String, dynamic> myData = await _MyMethods.readJSON();
+    List<dynamic> items = myData['names'];
     myNames = items.map((dynamic element) {
       return element.toString();
     }).toList();
@@ -150,7 +146,16 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Colors.lightBlue,
                               width: 1,
                             )),
-                        child: const Icon(Icons.add, color: Colors.lightBlue),
+                        child: IconButton(
+                          icon: const Icon(Icons.add, color: Colors.lightBlue),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SecondScreen()),
+                            );
+                          },
+                        ),
                       ),
                       onTap: () {},
                     ),
@@ -290,16 +295,6 @@ class _MyHomePageState extends State<MyHomePage> {
             Column(
               children: _items,
             ),
-            const Padding(padding: EdgeInsets.only(top: 50)),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SecondScreen()),
-                  );
-                },
-                child: const Text("Переход на другую страницу"))
           ],
         ),
       ),
