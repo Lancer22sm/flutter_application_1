@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class MyMethods extends StatelessWidget {
   MyMethods({super.key});
   final _controller = TextEditingController();
+
   String getTextFromField() {
     String myText = _controller.text;
     _controller.text = "";

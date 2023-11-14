@@ -7,6 +7,8 @@ import 'package:path_provider/path_provider.dart';
 
 var _MyMethods = MyMethods();
 
+String myTextField = "";
+
 Column myColumns = Column(children: <Widget>[
   _MyMethods.myRowPeople(
       "Александо Толстиков",
@@ -40,11 +42,16 @@ class SecondScreen extends StatefulWidget {
 class _SecondScreen extends State<SecondScreen> {
   final _items = <Widget>[];
 
+  String getMyTextField() {
+    myTextField = _MyMethods.getTextFromField();
+    return myTextField;
+  }
+
   void _addItem() {
     setState(() {
       _items.add(_MyMethods.myRowStroke());
       _items.add(_MyMethods.myRowPeople(
-          _MyMethods.getTextFromField(),
+          getMyTextField(),
           Image.asset('assets/images/image1.jpg', width: 24, height: 24),
           const Icon(Icons.mic_off, color: Colors.blueGrey),
           const Icon(
@@ -73,17 +80,25 @@ class _SecondScreen extends State<SecondScreen> {
 
   void jsonCollect() async {
     List<String> myNames = [];
-    //final file = File(await DefaultAssetBundle.of(context).loadString('assets/jsons/mynames.json'));
-    var jsonData = await rootBundle.loadString('assets/jsons/mynames.json');
-    Map<String, dynamic> data = jsonDecode(jsonData) as Map<String, dynamic>;
-    data["names"].add(_MyMethods.getTextFromField());
-    writeJSON(data);
     Map<String, dynamic> myData = await readJSON();
+    myData['names'].add(myTextField);
+    writeJSON(myData);
     List<dynamic> items = myData['names'];
     myNames = items.map((dynamic element) {
       return element.toString();
     }).toList();
+    print("myNames");
     print(myNames);
+
+
+    List<String> myNames1 = [];
+    Map<String, dynamic> myData1 = await readJSON();
+    List<dynamic> items1 = myData1['names'];
+    myNames1 = items1.map((dynamic element) {
+      return element.toString();
+    }).toList();
+    print("myNames1");
+    print(myNames1);
     //file.writeAsStringSync(json.encode(data));
     //modifiedFile.writeAsStringSync(json.encode(data));
   }
