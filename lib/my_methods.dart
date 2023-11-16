@@ -63,7 +63,10 @@ class MyMethods extends StatelessWidget {
       return Text(
         namePeople,
         textAlign: TextAlign.left,
-        style: TextStyle(color: colorText),
+        style: TextStyle(
+          color: colorText,
+          fontFamily: 'Montserrat',
+        ),
         overflow: TextOverflow.ellipsis,
         maxLines: 1,
         softWrap: false,
@@ -87,7 +90,7 @@ class MyMethods extends StatelessWidget {
       Color containerColor,
       String statePeople,
       double containerPadding,
-      bool first, 
+      bool first,
       Color colorText) {
     if (state) {
       return Column(
@@ -144,7 +147,7 @@ class MyMethods extends StatelessWidget {
       String statePeople,
       double containerPadding,
       double heightSizeBox,
-      bool first, 
+      bool first,
       Color colorText) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -185,7 +188,7 @@ class MyMethods extends StatelessWidget {
       String statePeople,
       double containerPadding,
       double heightSizeBox,
-      bool first, 
+      bool first,
       Color colorText) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -206,8 +209,15 @@ class MyMethods extends StatelessWidget {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    myColumnStatePeople(namePeople, state, containerWidth,
-                        containerColor, statePeople, containerPadding, first, colorText),
+                    myColumnStatePeople(
+                        namePeople,
+                        state,
+                        containerWidth,
+                        containerColor,
+                        statePeople,
+                        containerPadding,
+                        first,
+                        colorText),
                     SizedBox(
                         width: 130,
                         child: Wrap(
