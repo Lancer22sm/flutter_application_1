@@ -69,9 +69,12 @@ class _MyHomePageState extends State<MyHomePage> {
               "Отошёл",
               115,
               20,
-              true));
+              true,
+              Colors.black));
         }
       });
+    } else {
+      _items.clear();
     }
   }
 
@@ -124,6 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         onChanged: (String? newValue) {
                           setState(() {
                             dropdownvalue = newValue!;
+                            _addItem();
                           });
                         },
                       ),
@@ -183,7 +187,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 "Отошёл",
                 115,
                 20,
-                true),
+                true,
+                Colors.black),
             _MyMethods.myRowStroke(),
             _MyMethods.myRowPeople(
                 "Ассистентовый Вадим",
@@ -201,7 +206,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 "Отошёл",
                 115,
                 45,
-                true),
+                true,
+                Colors.black),
             _MyMethods.myRowStroke(),
             _MyMethods.myRowPeople(
                 "Поинтов Пётр Петрович",
@@ -219,7 +225,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 "Отошёл",
                 115,
                 20,
-                true),
+                true,
+                Colors.black),
             _MyMethods.myRowStroke(),
             _MyMethods.myRowPeople(
                 "Селекторный Кирил Валерьевич",
@@ -237,7 +244,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 "Отошёл",
                 115,
                 20,
-                true),
+                true,
+                Colors.black),
             _MyMethods.myRowStroke(),
             _MyMethods.myRowPeople(
                 "Худенков Александр",
@@ -255,7 +263,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 "Отошёл",
                 115,
                 45,
-                true),
+                true,
+                Colors.black),
             _MyMethods.myRowStroke(),
             _MyMethods.myRowPeople(
                 "Цапля Андрей Андреевич",
@@ -273,7 +282,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 "Контакт оффлайн",
                 55,
                 45,
-                true),
+                true,
+                Colors.grey),
             _MyMethods.myRowStroke(),
             _MyMethods.myRowPeople(
                 "Черный Артём Генадьевич",
@@ -291,7 +301,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 "Звоним...",
                 110,
                 45,
-                true),
+                true,
+                Colors.grey),
             Column(
               children: _items,
             ),

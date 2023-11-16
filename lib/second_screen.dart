@@ -25,7 +25,8 @@ Column myColumns = Column(children: <Widget>[
       "Отошёл",
       115,
       20,
-      false)
+      false,
+      Colors.black)
 ]);
 
 class SecondScreen extends StatefulWidget {
@@ -47,7 +48,7 @@ class _SecondScreen extends State<SecondScreen> {
     setState(() {
       _items.add(_MyMethods.myRowStroke());
       _items.add(_MyMethods.myRowPeople(
-          getMyTextField(),
+          myTextField,
           Image.asset('assets/images/image1.jpg', width: 24, height: 24),
           const Icon(Icons.mic_off, color: Colors.blueGrey),
           const Icon(
@@ -65,7 +66,8 @@ class _SecondScreen extends State<SecondScreen> {
           "Отошёл",
           115,
           20,
-          true));
+          true,
+          Colors.black));
       jsonCollect();
     });
   }
@@ -90,7 +92,10 @@ class _SecondScreen extends State<SecondScreen> {
         const Padding(padding: EdgeInsets.only(top: 40)),
         ElevatedButton(
             onPressed: () {
-              _addItem();
+              String getText = getMyTextField();
+              if (getText != "") {
+                _addItem();
+              }
             },
             child: const Text("Добавить пользователя")),
         const Padding(padding: EdgeInsets.only(top: 40)),

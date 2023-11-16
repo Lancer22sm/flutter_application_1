@@ -58,12 +58,12 @@ class MyMethods extends StatelessWidget {
     }
   }
 
-  Widget FirstOrSecondScreen(bool first, String namePeople) {
+  Widget FirstOrSecondScreen(bool first, String namePeople, Color colorText) {
     if (first) {
       return Text(
         namePeople,
         textAlign: TextAlign.left,
-        style: const TextStyle(color: Colors.black),
+        style: TextStyle(color: colorText),
         overflow: TextOverflow.ellipsis,
         maxLines: 1,
         softWrap: false,
@@ -87,7 +87,8 @@ class MyMethods extends StatelessWidget {
       Color containerColor,
       String statePeople,
       double containerPadding,
-      bool first) {
+      bool first, 
+      Color colorText) {
     if (state) {
       return Column(
         children: <Widget>[
@@ -96,7 +97,7 @@ class MyMethods extends StatelessWidget {
               padding: const EdgeInsets.only(left: 5),
               width: 180,
               height: 20,
-              child: FirstOrSecondScreen(first, namePeople)),
+              child: FirstOrSecondScreen(first, namePeople, colorText)),
           Padding(
             padding: EdgeInsets.only(right: containerPadding, left: 5, top: 5),
             child: Container(
@@ -125,7 +126,7 @@ class MyMethods extends StatelessWidget {
               padding: const EdgeInsets.only(left: 5),
               width: 180,
               height: 20,
-              child: FirstOrSecondScreen(first, namePeople))
+              child: FirstOrSecondScreen(first, namePeople, colorText))
         ],
       );
     }
@@ -143,7 +144,8 @@ class MyMethods extends StatelessWidget {
       String statePeople,
       double containerPadding,
       double heightSizeBox,
-      bool first) {
+      bool first, 
+      Color colorText) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Column>[
@@ -159,7 +161,8 @@ class MyMethods extends StatelessWidget {
               statePeople,
               containerPadding,
               heightSizeBox,
-              first)
+              first,
+              colorText)
         ]);
   }
 
@@ -182,7 +185,8 @@ class MyMethods extends StatelessWidget {
       String statePeople,
       double containerPadding,
       double heightSizeBox,
-      bool first) {
+      bool first, 
+      Color colorText) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
@@ -203,7 +207,7 @@ class MyMethods extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     myColumnStatePeople(namePeople, state, containerWidth,
-                        containerColor, statePeople, containerPadding, first),
+                        containerColor, statePeople, containerPadding, first, colorText),
                     SizedBox(
                         width: 130,
                         child: Wrap(
