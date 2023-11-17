@@ -225,7 +225,10 @@ class MyMethods extends StatelessWidget {
                           spacing: 5,
                           children: <Widget>[
                             iconHand,
-                            svgMicro,
+                            SizedBox(
+                              width: 20,
+                              child: svgMicro,
+                            ),
                             svgCamera,
                             const Padding(padding: EdgeInsets.only(left: 5)),
                             const Icon(Icons.arrow_drop_down,

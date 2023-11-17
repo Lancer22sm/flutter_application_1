@@ -209,7 +209,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _MyMethods.myRowPeople(
                 "Поинтов Пётр Петрович",
                 Image.asset('assets/images/image3.jpg', width: 24, height: 24),
-                SvgPicture.asset('assets/icons/mic_on.svg', height: 18),
+                SvgPicture.asset('assets/icons/mic_on.svg', height: 17),
                 SvgPicture.asset('assets/icons/camera_off.svg', height: 18),
                 const Icon(
                   Icons.back_hand,
@@ -247,7 +247,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _MyMethods.myRowPeople(
                 "Худенков Александр",
                 Image.asset('assets/images/image5.jpg', width: 24, height: 24),
-                SvgPicture.asset('assets/icons/mic_on.svg', height: 18),
+                SvgPicture.asset('assets/icons/mic_on.svg', height: 17),
                 SvgPicture.asset('assets/icons/camera_off.svg', height: 18),
                 const Icon(
                   Icons.back_hand,
