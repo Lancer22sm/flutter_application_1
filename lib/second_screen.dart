@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/my_methods.dart';
+import 'package:flutter_svg/svg.dart';
 
 var _MyMethods = MyMethods();
 
@@ -9,11 +10,8 @@ Column myColumns = Column(children: <Widget>[
   _MyMethods.myRowPeople(
       "Александо Толстиков",
       Image.asset('assets/images/image1.jpg', width: 24, height: 24),
-      const Icon(Icons.mic_off, color: Colors.blueGrey),
-      const Icon(
-        Icons.videocam_off,
-        color: Colors.blueGrey,
-      ),
+      SvgPicture.asset('assets/icons/mic_off.svg', height: 18),
+      SvgPicture.asset('assets/icons/camera_off.svg', height: 18),
       const Icon(
         Icons.back_hand,
         color: Colors.white,
@@ -50,11 +48,8 @@ class _SecondScreen extends State<SecondScreen> {
       _items.add(_MyMethods.myRowPeople(
           myTextField,
           Image.asset('assets/images/image1.jpg', width: 24, height: 24),
-          const Icon(Icons.mic_off, color: Colors.blueGrey),
-          const Icon(
-            Icons.videocam_off,
-            color: Colors.blueGrey,
-          ),
+          SvgPicture.asset('assets/icons/mic_off.svg', height: 18),
+          SvgPicture.asset('assets/icons/camera_off.svg', height: 18),
           const Icon(
             Icons.back_hand,
             color: Colors.white,

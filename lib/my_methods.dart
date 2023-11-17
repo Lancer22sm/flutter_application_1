@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:flutter_svg/svg.dart';
 
 class MyMethods extends StatelessWidget {
   MyMethods({super.key});
@@ -138,8 +139,8 @@ class MyMethods extends StatelessWidget {
   Row myRowPeople(
       String namePeople,
       Image imagePeople,
-      Icon iconMicro,
-      Icon iconCamera,
+      SvgPicture svgMicro,
+      SvgPicture svgCamera,
       Icon iconHand,
       bool state,
       double containerWidth,
@@ -155,8 +156,8 @@ class MyMethods extends StatelessWidget {
           myColumnPeople(
               namePeople,
               imagePeople,
-              iconMicro,
-              iconCamera,
+              svgMicro,
+              svgCamera,
               iconHand,
               state,
               containerWidth,
@@ -179,8 +180,8 @@ class MyMethods extends StatelessWidget {
   Column myColumnPeople(
       String namePeople,
       Image imagePeople,
-      Icon iconMicro,
-      Icon iconCamera,
+      SvgPicture svgMicro,
+      SvgPicture svgCamera,
       Icon iconHand,
       bool state,
       double containerWidth,
@@ -224,8 +225,8 @@ class MyMethods extends StatelessWidget {
                           spacing: 5,
                           children: <Widget>[
                             iconHand,
-                            iconMicro,
-                            iconCamera,
+                            svgMicro,
+                            svgCamera,
                             const Padding(padding: EdgeInsets.only(left: 5)),
                             const Icon(Icons.arrow_drop_down,
                                 color: Colors.black)

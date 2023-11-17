@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'second_screen.dart';
 import 'package:flutter_application_1/my_methods.dart';
+import 'package:flutter_svg/svg.dart';
 
 var _MyMethods = MyMethods();
 // Вход в приложение
@@ -53,11 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
           _items.add(_MyMethods.myRowPeople(
               myNames[i + 7],
               Image.asset('assets/images/image1.jpg', width: 24, height: 24),
-              const Icon(Icons.mic_off, color: Colors.blueGrey),
-              const Icon(
-                Icons.videocam_off,
-                color: Colors.blueGrey,
-              ),
+              SvgPicture.asset('assets/icons/mic_off.svg', height: 18),
+              SvgPicture.asset('assets/icons/camera_off.svg', height: 18),
               const Icon(
                 Icons.back_hand,
                 color: Colors.white,
@@ -173,11 +171,8 @@ class _MyHomePageState extends State<MyHomePage> {
             _MyMethods.myRowPeople(
                 "Александ Толстиков",
                 Image.asset('assets/images/image1.jpg', width: 24, height: 24),
-                const Icon(Icons.mic_off, color: Colors.blueGrey),
-                const Icon(
-                  Icons.videocam_off,
-                  color: Colors.blueGrey,
-                ),
+                SvgPicture.asset('assets/icons/mic_off.svg', height: 18),
+                SvgPicture.asset('assets/icons/camera_off.svg', height: 18),
                 const Icon(
                   Icons.back_hand,
                   color: Colors.white,
@@ -195,8 +190,8 @@ class _MyHomePageState extends State<MyHomePage> {
             _MyMethods.myRowPeople(
                 "Ассистентовый Вадим",
                 Image.asset('assets/images/image2.jpg', width: 24, height: 24),
-                const Icon(Icons.mic_off, color: Colors.blueGrey),
-                const Icon(Icons.videocam_off, color: Colors.blueGrey),
+                SvgPicture.asset('assets/icons/mic_off.svg', height: 18),
+                SvgPicture.asset('assets/icons/camera_off.svg', height: 18),
                 const Icon(
                   Icons.back_hand,
                   color: Colors.red,
@@ -214,8 +209,8 @@ class _MyHomePageState extends State<MyHomePage> {
             _MyMethods.myRowPeople(
                 "Поинтов Пётр Петрович",
                 Image.asset('assets/images/image3.jpg', width: 24, height: 24),
-                const Icon(Icons.mic, color: Colors.blueGrey),
-                const Icon(Icons.videocam_off, color: Colors.blueGrey),
+                SvgPicture.asset('assets/icons/mic_on.svg', height: 18),
+                SvgPicture.asset('assets/icons/camera_off.svg', height: 18),
                 const Icon(
                   Icons.back_hand,
                   color: Colors.white,
@@ -233,8 +228,8 @@ class _MyHomePageState extends State<MyHomePage> {
             _MyMethods.myRowPeople(
                 "Селекторный Кирил Валерьевич",
                 Image.asset('assets/images/image4.jpg', width: 24, height: 24),
-                const Icon(Icons.mic_off, color: Colors.blueGrey),
-                const Icon(Icons.videocam_off, color: Colors.blueGrey),
+                SvgPicture.asset('assets/icons/mic_off.svg', height: 18),
+                SvgPicture.asset('assets/icons/camera_off.svg', height: 18),
                 const Icon(
                   Icons.back_hand,
                   color: Colors.white,
@@ -252,8 +247,8 @@ class _MyHomePageState extends State<MyHomePage> {
             _MyMethods.myRowPeople(
                 "Худенков Александр",
                 Image.asset('assets/images/image5.jpg', width: 24, height: 24),
-                const Icon(Icons.mic, color: Colors.blueGrey),
-                const Icon(Icons.videocam_off, color: Colors.blueGrey),
+                SvgPicture.asset('assets/icons/mic_on.svg', height: 18),
+                SvgPicture.asset('assets/icons/camera_off.svg', height: 18),
                 const Icon(
                   Icons.back_hand,
                   color: Colors.white,
@@ -271,8 +266,8 @@ class _MyHomePageState extends State<MyHomePage> {
             _MyMethods.myRowPeople(
                 "Цапля Андрей Андреевич",
                 Image.asset('assets/images/image6.jpg', width: 24, height: 24),
-                const Icon(Icons.mic_off, color: Colors.blueGrey),
-                const Icon(Icons.videocam_off, color: Colors.blueGrey),
+                SvgPicture.asset('assets/icons/mic_off.svg', height: 18),
+                SvgPicture.asset('assets/icons/camera_off.svg', height: 18),
                 const Icon(
                   Icons.back_hand,
                   color: Colors.white,
@@ -290,8 +285,8 @@ class _MyHomePageState extends State<MyHomePage> {
             _MyMethods.myRowPeople(
                 "Черный Артём Генадьевич",
                 Image.asset('assets/images/image7.jpg', width: 24, height: 24),
-                const Icon(Icons.mic_off, color: Colors.blueGrey),
-                const Icon(Icons.videocam_off, color: Colors.blueGrey),
+                SvgPicture.asset('assets/icons/mic_off.svg', height: 18),
+                SvgPicture.asset('assets/icons/camera_off.svg', height: 18),
                 const Icon(
                   Icons.back_hand,
                   color: Colors.white,
