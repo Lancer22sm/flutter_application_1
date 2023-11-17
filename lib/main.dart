@@ -108,10 +108,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             width: 1,
                           )),
                       child: DropdownButton(
+                        isDense: true,
                         menuMaxHeight: 200,
                         isExpanded: true,
                         value: dropdownvalue,
-                        padding: const EdgeInsets.only(left: 10),
+                        padding:
+                            const EdgeInsets.only(left: 10, right: 5, top: 7),
                         style: const TextStyle(
                           color: Colors.black,
                           fontFamily: 'Montserrat',
@@ -147,11 +149,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(5)),
                             border: Border.all(
-                              color: Colors.lightBlue,
+                              color: const Color.fromRGBO(34, 165, 166, 1),
                               width: 1,
                             )),
                         child: IconButton(
-                          icon: const Icon(Icons.add, color: Colors.lightBlue),
+                          icon: const Icon(Icons.add,
+                              color: Color.fromRGBO(34, 165, 166, 1)),
                           onPressed: () {
                             Navigator.push(
                               context,
