@@ -42,6 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<String> myNames = [];
 
   void _addItem() async {
+    _items.clear();
     Map<String, dynamic> myData = await _MyMethods.readJSON();
     List<dynamic> items = myData['names'];
     myNames = items.map((dynamic element) {
@@ -61,18 +62,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.white,
                 size: 20,
               ),
-              false,
-              65,
-              Colors.grey,
-              "Отошёл",
-              115,
-              20,
-              true,
+              "none",
               Colors.black));
         }
       });
-    } else {
-      _items.clear();
     }
   }
 
@@ -181,13 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.white,
                   size: 20,
                 ),
-                false,
-                65,
-                Colors.grey,
-                "Отошёл",
-                115,
-                20,
-                true,
+                "none",
                 Colors.black),
             _MyMethods.myRowStroke(),
             _MyMethods.myRowPeople(
@@ -200,13 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.red,
                   size: 20,
                 ),
-                true,
-                65,
-                Colors.black45,
                 "Отошёл",
-                115,
-                45,
-                true,
                 Colors.black),
             _MyMethods.myRowStroke(),
             _MyMethods.myRowPeople(
@@ -219,13 +200,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.white,
                   size: 20,
                 ),
-                false,
-                65,
-                Colors.grey,
-                "Отошёл",
-                115,
-                20,
-                true,
+                "none",
                 Colors.black),
             _MyMethods.myRowStroke(),
             _MyMethods.myRowPeople(
@@ -238,13 +213,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.white,
                   size: 20,
                 ),
-                false,
-                65,
-                Colors.grey,
-                "Отошёл",
-                115,
-                20,
-                true,
+                "none",
                 Colors.black),
             _MyMethods.myRowStroke(),
             _MyMethods.myRowPeople(
@@ -257,13 +226,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.white,
                   size: 20,
                 ),
-                true,
-                65,
-                Colors.black45,
                 "Отошёл",
-                115,
-                45,
-                true,
                 Colors.black),
             _MyMethods.myRowStroke(),
             _MyMethods.myRowPeople(
@@ -276,13 +239,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.white,
                   size: 20,
                 ),
-                true,
-                130,
-                Colors.black12,
                 "Контакт оффлайн",
-                55,
-                45,
-                true,
                 Colors.black54),
             _MyMethods.myRowStroke(),
             _MyMethods.myRowPeople(
@@ -295,13 +252,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.white,
                   size: 20,
                 ),
-                true,
-                70,
-                const Color.fromRGBO(34, 165, 166, 1),
                 "Звоним...",
-                110,
-                45,
-                true,
                 Colors.black54),
             Column(
               children: _items,

@@ -142,14 +142,43 @@ class MyMethods extends StatelessWidget {
       SvgPicture svgMicro,
       SvgPicture svgCamera,
       Icon iconHand,
-      bool state,
-      double containerWidth,
-      Color containerColor,
       String statePeople,
-      double containerPadding,
-      double heightSizeBox,
-      bool first,
       Color colorText) {
+    bool first = true;
+    bool state = true;
+    double containerWidth;
+    Color containerColor;
+    double containerPadding;
+    double heightSizeBox;
+    if (statePeople == "none") {
+      state = false;
+      containerWidth = 65;
+      containerColor = Colors.grey;
+      containerPadding = 115;
+      heightSizeBox = 20;
+    } else if (statePeople == "Отошёл") {
+      containerWidth = 65;
+      containerColor = Colors.grey;
+      containerPadding = 115;
+      heightSizeBox = 45;
+    } else if (statePeople == "Контакт оффлайн") {
+      containerWidth = 130;
+      containerColor = Colors.black12;
+      containerPadding = 55;
+      heightSizeBox = 45;
+    } else if (statePeople == "Звоним...") {
+      containerWidth = 70;
+      containerColor = const Color.fromRGBO(34, 165, 166, 1);
+      containerPadding = 110;
+      heightSizeBox = 45;
+    } else {
+      state = false;
+      containerWidth = 65;
+      containerColor = Colors.grey;
+      containerPadding = 115;
+      heightSizeBox = 20;
+      first = false;
+    }
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Column>[

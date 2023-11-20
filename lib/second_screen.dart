@@ -17,13 +17,7 @@ Column myColumns = Column(children: <Widget>[
         color: Colors.white,
         size: 20,
       ),
-      false,
-      65,
-      Colors.grey,
-      "Отошёл",
-      115,
-      20,
-      false,
+      "TextField",
       Colors.black)
 ]);
 
@@ -55,13 +49,7 @@ class _SecondScreen extends State<SecondScreen> {
             color: Colors.white,
             size: 20,
           ),
-          false,
-          65,
-          Colors.grey,
-          "Отошёл",
-          115,
-          20,
-          true,
+          "none",
           Colors.black));
       jsonCollect();
     });
