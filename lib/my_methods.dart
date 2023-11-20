@@ -27,8 +27,8 @@ class MyMethods extends StatelessWidget {
 
   localPath() async {
     try {
-      var tempDir = await getTemporaryDirectory();
-      String tempPath = tempDir.path;
+      //var tempDir = await getTemporaryDirectory();
+      //String tempPath = tempDir.path;
 
       var appDocDir = await getApplicationDocumentsDirectory();
       String appDocPath = appDocDir.path;
@@ -164,7 +164,7 @@ class MyMethods extends StatelessWidget {
     } else if (statePeople == "Контакт оффлайн") {
       containerWidth = 130;
       containerColor = Colors.black12;
-      containerPadding = 55;
+      containerPadding = 50;
       heightSizeBox = 45;
     } else if (statePeople == "Звоним...") {
       containerWidth = 70;
