@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:http/http.dart' as http;
 
 class MyMethods extends StatelessWidget {
   MyMethods({super.key});
@@ -41,9 +42,14 @@ class MyMethods extends StatelessWidget {
 // читаем данные json
   readJSON() async {
     try {
-      final file = await localFile(await localPath());
-      String str = await file.readAsString();
-      return json.decode(str);
+      Uri url = Uri.parse('http://192.168.42.76:8080/get');
+      var response = await http.get(url);
+      //print(response.body);
+
+      //final file = await localFile(await localPath());
+      //String str = await file.readAsString();
+
+      return json.decode(response.body);
     } catch (err) {
       print(err);
     }
@@ -52,8 +58,14 @@ class MyMethods extends StatelessWidget {
   // записываем данные json
   writeJSON(Map<String, dynamic> obj) async {
     try {
-      final file = await localFile(await localPath());
-      return file.writeAsString(json.encode(obj));
+      //final file = await localFile(await localPath());
+      String myObj = jsonEncode(obj);
+      print(myObj);
+      Uri url = Uri.parse('http://192.168.42.76:8080/put');
+      var isPut = await http.put(url, body: myObj);
+      print(isPut);
+
+      //return file.writeAsString(json.encode(obj));
     } catch (err) {
       print(err);
     }
@@ -249,7 +261,7 @@ class MyMethods extends StatelessWidget {
                         first,
                         colorText),
                     SizedBox(
-                        width: 130,
+                        width: 120,
                         child: Wrap(
                           spacing: 5,
                           children: <Widget>[

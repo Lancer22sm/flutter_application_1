@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/my_methods.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:http/http.dart' as http;
 
 var _MyMethods = MyMethods();
 
@@ -83,8 +84,13 @@ class _SecondScreen extends State<SecondScreen> {
             child: const Text("Добавить пользователя")),
         const Padding(padding: EdgeInsets.only(top: 40)),
         ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               _MyMethods.jsonClear();
+
+              Uri url = Uri.parse('http://192.168.42.76:8080/get');
+
+              var response = await http.get(url);
+              print(response.body);
             },
             child: const Text("очистить json"))
       ]),
